@@ -28,5 +28,8 @@ public class Main {
         System.out.println("Männer: " + myPersons.countByGender(Gender.MALE));
         System.out.println("Frauen: " + myPersons.countByGender(Gender.FEMALE));
         System.out.println("Divers: " + myPersons.countByGender(Gender.DIVERSE));
+
+        System.out.println(myPersons.getPerson("Otto"));
+        System.out.println(myPersons.getPersonsByFavoriteDay(DaysOfWeek.SATURDAY));
     }
 }

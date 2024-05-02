@@ -1,6 +1,4 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 public class PersonRepository {
     private Map<String, Person> persons = new HashMap<>();
@@ -18,6 +16,25 @@ public class PersonRepository {
 
     public Optional<Person> getPerson(Person person) {
         return Optional.ofNullable(persons.get(person.id()));
+    }
+
+    public Optional<Person> getPerson(String name) {
+        for (Person p : persons.values()) {
+            if (p.name().equals(name)) {
+                return Optional.of(p);
+            }
+        }
+        return Optional.empty();
+    }
+
+    public List<Person> getPersonsByFavoriteDay(DaysOfWeek day) {
+        List<Person> personList = new ArrayList<>();
+        for (Person p : persons.values()) {
+            if (p.favoriteDay() == day) {
+                personList.add(p);
+            }
+        }
+        return personList;
     }
 
     public int countByGender(Gender gender) {
