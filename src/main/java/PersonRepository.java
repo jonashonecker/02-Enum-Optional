@@ -20,6 +20,16 @@ public class PersonRepository {
         return Optional.ofNullable(persons.get(person.id()));
     }
 
+    public int countByGender(Gender gender) {
+        int counter = 0;
+        for (Person p : persons.values()) {
+            if (p.gender() == gender) {
+                counter++;
+            }
+        }
+        return counter;
+    }
+
     public Map<String, Person> getPersons() {
         return persons;
     }
